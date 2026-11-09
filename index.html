@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ToDo List | Практична робота (Варіант 8)</title>
+  
+  <!-- Шрифти та Іконки -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <div class="app-container">
+    <!-- Шапка додатка -->
+    <header class="app-header">
+      <div class="header-icon">
+        <i class="fa-solid fa-list-check"></i>
+      </div>
+      <div>
+        <h1>ToDo List</h1>
+        <p>Практична робота • Варіант 8 • LocalStorage & DOM Events</p>
+      </div>
+    </header>
+
+    <!-- Завдання 1: Введення нового завдання -->
+    <section class="input-section">
+      <div class="input-wrapper">
+        <i class="fa-solid fa-plus input-icon"></i>
+        <input 
+          type="text" 
+          id="taskInput" 
+          placeholder="Додайте завдання та натисніть Enter..." 
+          autocomplete="off"
+        >
+      </div>
+    </section>
+
+    <!-- Завдання 8: Панель сортування та фільтрації -->
+    <section class="controls-section">
+      <div class="filter-buttons">
+        <button class="filter-btn active" data-filter="all">
+          <i class="fa-solid fa-layer-group"></i> Всі (<span id="countAll">0</span>)
+        </button>
+        <button class="filter-btn" data-filter="active">
+          <i class="fa-regular fa-circle"></i> Невиконані (<span id="countActive">0</span>)
+        </button>
+        <button class="filter-btn" data-filter="completed">
+          <i class="fa-regular fa-circle-check"></i> Виконані (<span id="countCompleted">0</span>)
+        </button>
+      </div>
+
+      <div class="sort-wrapper">
+        <label for="sortSelect"><i class="fa-solid fa-arrow-down-short-wide"></i> Сортування:</label>
+        <select id="sortSelect" class="sort-select">
+          <option value="status">Спочатку невиконані</option>
+          <option value="newest">Спочатку нові</option>
+          <option value="oldest">Спочатку старі</option>
+        </select>
+      </div>
+    </section>
+
+    <!-- Завдання 2-6: Список завдань -->
+    <main class="tasks-section">
+      <ul id="taskList" class="task-list"></ul>
+      
+      <!-- Повідомлення при порожньому списку -->
+      <div id="emptyState" class="empty-state">
+        <i class="fa-solid fa-clipboard-list"></i>
+        <p>Список завдань порожній</p>
+        <small>Введіть текст у поле вище та натисніть Enter</small>
+      </div>
+    </main>
+
+    <!-- Підвал із додатковими діями -->
+    <footer class="app-footer">
+      <span class="footer-info"><i class="fa-solid fa-database"></i> Автозбереження: LocalStorage</span>
+      <button id="clearCompletedBtn" class="clear-btn">
+        <i class="fa-solid fa-trash-sweep"></i> Очистити виконані
+      </button>
+    </footer>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
